@@ -23,7 +23,7 @@ userRouter.get("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {
-        const query = { _id: new ObjectId(id) };
+        const query = { userId: id };
         const game = (await collections.users?.findOne(query));
 
         if (game) {
