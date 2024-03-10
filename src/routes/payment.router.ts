@@ -9,7 +9,7 @@ paymentRouter.use(express.json());
 
 {/* Get all payments */}
 
-paymentRouter.get("/payment", async (_req: Request, res: Response) => {
+paymentRouter.get("/", async (_req: Request, res: Response) => {
     try {
         const payments = await collections.payment?.find({}).toArray();
         res.status(200).send(payments);
@@ -19,7 +19,7 @@ paymentRouter.get("/payment", async (_req: Request, res: Response) => {
 });
 
 {/* Get payment by ID */}
-paymentRouter.get("/payment/:id", async (req: Request, res: Response) => {
+paymentRouter.get("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {
@@ -35,7 +35,7 @@ paymentRouter.get("/payment/:id", async (req: Request, res: Response) => {
 });
 
 {/* Create a new payment */}
-paymentRouter.post("/payment", async (req: Request, res: Response) => {
+paymentRouter.post("/", async (req: Request, res: Response) => {
     const paymentData = req.body as Payment;
 
     try {
@@ -47,7 +47,7 @@ paymentRouter.post("/payment", async (req: Request, res: Response) => {
 });
 
 {/* Update a payment */}
-paymentRouter.put("/payment/:id", async (req: Request, res: Response) => {
+paymentRouter.put("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
     const paymentData = req.body as Payment;
 
@@ -61,7 +61,7 @@ paymentRouter.put("/payment/:id", async (req: Request, res: Response) => {
 });
 
 {/* Delete a payment */}
-paymentRouter.delete("/payment/:id", async (req: Request, res: Response) => {
+paymentRouter.delete("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {

@@ -8,7 +8,7 @@ export const adRouter = express.Router();
 adRouter.use(express.json());
 
 {/* Get all ads */}
-adRouter.get("/ad", async (_req: Request, res: Response) => {
+adRouter.get("/", async (_req: Request, res: Response) => {
     try {
         const ads = await collections.ad?.find({}).toArray();
         res.status(200).send(ads);
@@ -19,7 +19,7 @@ adRouter.get("/ad", async (_req: Request, res: Response) => {
 
 {/* Get ad by ID */}
 
-adRouter.get("/ad/:id", async (req: Request, res: Response) => {
+adRouter.get("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {
@@ -36,7 +36,7 @@ adRouter.get("/ad/:id", async (req: Request, res: Response) => {
 
 {/* Create a new ad */}
 
-adRouter.post("/ad", async (req: Request, res: Response) => {
+adRouter.post("/", async (req: Request, res: Response) => {
     const adData = req.body as Ad;
 
     try {
@@ -49,7 +49,7 @@ adRouter.post("/ad", async (req: Request, res: Response) => {
 
 {/* Update an ad */}
 
-adRouter.put("/ad/:id", async (req: Request, res: Response) => {
+adRouter.put("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
     const adData = req.body as Ad;
 
@@ -64,7 +64,7 @@ adRouter.put("/ad/:id", async (req: Request, res: Response) => {
 
 {/* Delete an ad */}
 
-adRouter.delete("/ad/:id", async (req: Request, res: Response) => {
+adRouter.delete("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {

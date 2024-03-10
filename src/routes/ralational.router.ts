@@ -9,7 +9,7 @@ relationalRouter.use(express.json());
 
 {/* Get all relationals */}
 
-relationalRouter.get("/relational", async (_req: Request, res: Response) => {
+relationalRouter.get("/", async (_req: Request, res: Response) => {
     try {
         const relationals = await collections.relational?.find({}).toArray();
         res.status(200).send(relationals);
@@ -20,7 +20,7 @@ relationalRouter.get("/relational", async (_req: Request, res: Response) => {
 
 {/* Get relational by ID */}
 
-relationalRouter.get("/relational/:id", async (req: Request, res: Response) => {
+relationalRouter.get("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {
@@ -37,7 +37,7 @@ relationalRouter.get("/relational/:id", async (req: Request, res: Response) => {
 
 {/* Create a new relational */}
 
-relationalRouter.post("/relational", async (req: Request, res: Response) => {
+relationalRouter.post("/", async (req: Request, res: Response) => {
     const relationalData = req.body as Relational;
 
     try {
@@ -50,7 +50,7 @@ relationalRouter.post("/relational", async (req: Request, res: Response) => {
 
 {/* Update a relational */}
 
-relationalRouter.put("/relational/:id", async (req: Request, res: Response) => {
+relationalRouter.put("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
     const relationalData = req.body as Relational;
 
@@ -65,7 +65,7 @@ relationalRouter.put("/relational/:id", async (req: Request, res: Response) => {
 
 {/* Delete a relational */}
 
-relationalRouter.delete("/relational/:id", async (req: Request, res: Response) => {
+relationalRouter.delete("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {
