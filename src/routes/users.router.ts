@@ -28,6 +28,8 @@ userRouter.get("/:id", async (req: Request, res: Response) => {
 
         if (game) {
             res.status(200).send(game);
+        } else {
+            res.status(500).send('NOT FOUND');
         }
     } catch (error: any) {
         res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
