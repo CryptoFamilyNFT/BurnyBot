@@ -70,7 +70,7 @@ userRouter.put("/:id", async (req: Request, res: Response) => {
     const updatedData = req.body as Partial<User>;
 
     try {
-        const result = await collections.users?.updateOne({ _id: new ObjectId(id) }, { $set: updatedData });
+        const result = await collections.users?.updateOne({ userId: id }, { $set: updatedData });
         res.status(200).send(result);
     } catch (error: any) {
         res.status(500).send(error.message);
