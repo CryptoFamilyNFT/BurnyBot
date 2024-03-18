@@ -46,7 +46,7 @@ userRouter.get("/address/:id", async (req: Request, res: Response) => {
         if (user) {
             res.status(200).send(user);
         } else {
-            res.status(404).send(`User with ID ${query.Address} not found.`);
+            res.status(404).send(`User with ID ${id} not found.`);
         }
     } catch (error: any) {
         res.status(500).send(error.message);

@@ -34,20 +34,20 @@ paymentRouter.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
-{/* Get payment from address */}
+{/* Get payment from userId */}
 
 paymentRouter.get("/address/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id
 
     try {
-        const query = { addressFrom: id  };
+        const query = { userId: id  };
         const payment = (await collections.payment?.findOne(query));
 
         if (payment) {
             res.status(200).send(payment);
         }
     } catch (error: any) {
-        res.status(404).send(`Unable to find matching document with id: ${req.body}`);
+        res.status(404).send(`Unable to find matching document with id: ${id}`);
     }
 });
 
