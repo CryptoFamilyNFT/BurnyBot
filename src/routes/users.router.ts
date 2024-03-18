@@ -36,6 +36,23 @@ userRouter.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
+
+{/* Get user by address */}
+userRouter.get("/address:id", async (req: Request, res: Response) => {
+    const id = req?.params?.id;
+    try {
+        const query = { Address: id };
+        const user = await collections.users?.findOne(query);
+        if (user) {
+            res.status(200).send(user);
+        } else {
+            res.status(404).send(`User with ID ${query.Address} not found.`);
+        }
+    } catch (error: any) {
+        res.status(500).send(error.message);
+    }
+});
+
 {/* Get user by telegram ID */}
 userRouter.get("/telegramId", async (req: Request, res: Response) => {
     const userData = req.body as User;
