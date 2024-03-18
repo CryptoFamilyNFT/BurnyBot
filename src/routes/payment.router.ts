@@ -36,11 +36,11 @@ paymentRouter.get("/:id", async (req: Request, res: Response) => {
 
 {/* Get payment from address */}
 
-paymentRouter.get("/:address", async (req: Request, res: Response) => {
-    const id = req.body as Payment;
+paymentRouter.get("/address/:id", async (req: Request, res: Response) => {
+    const id = req?.params?.id
 
     try {
-        const query = { addressFrom: id.addressFrom  };
+        const query = { addressFrom: id  };
         const payment = (await collections.payment?.findOne(query));
 
         if (payment) {
