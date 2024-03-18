@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "0.0.1",
-  "description": "Divitrend RESTful API Client",
+  "description": "Burny RESTful API Client",
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",

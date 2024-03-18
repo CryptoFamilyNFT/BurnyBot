@@ -34,6 +34,23 @@ paymentRouter.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
+{/* Get payment from address */}
+
+paymentRouter.get("/:address", async (req: Request, res: Response) => {
+    const id = req.body as Payment;
+
+    try {
+        const query = { addressFrom: id.addressFrom  };
+        const payment = (await collections.payment?.findOne(query));
+
+        if (payment) {
+            res.status(200).send(payment);
+        }
+    } catch (error: any) {
+        res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
+    }
+});
+
 {/* Create a new payment */}
 paymentRouter.post("/", async (req: Request, res: Response) => {
     const paymentData = req.body as Payment;
