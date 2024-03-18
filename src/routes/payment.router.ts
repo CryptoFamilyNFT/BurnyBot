@@ -47,7 +47,7 @@ paymentRouter.get("/:address", async (req: Request, res: Response) => {
             res.status(200).send(payment);
         }
     } catch (error: any) {
-        res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
+        res.status(404).send(`Unable to find matching document with id: ${req.body}`);
     }
 });
 
