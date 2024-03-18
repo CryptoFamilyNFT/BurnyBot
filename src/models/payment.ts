@@ -7,6 +7,7 @@ export default class Payment {
         public addressFrom: string, // Address from which the payment originated
         public userId: string, // Address from which the payment originated
         public Amount: number, // Amount of the payment
+        public creditcalculated: number, // Calculated credits
         public Timestamp: Date, // Timestamp for when the payment occurred
         public BalanceUpdated: boolean // Indicates if the balance is updated
     ) {}
