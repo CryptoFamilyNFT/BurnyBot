@@ -38,7 +38,7 @@ userRouter.get("/:id", async (req: Request, res: Response) => {
 
 
 {/* Get user by address */}
-userRouter.get("/address:id", async (req: Request, res: Response) => {
+userRouter.get("/address/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
     try {
         const query = { Address: id };
