@@ -5,6 +5,8 @@ export default class Group {
     constructor(
         public id: ObjectId, // Unique identifier for the group
         public groupId: string, // Group ID
+        public projectName: string,// Project Name
+        public pairAddress: string, // LP Pair Address
         public tokenAddress: string, // Token address associated with the group
         public poolType: string, // Type of pool associated with the group
         public tokenBoughtBurned: number, // Number of tokens bought and burned
