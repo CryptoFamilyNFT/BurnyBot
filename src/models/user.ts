@@ -8,7 +8,7 @@ export default class User {
         public Credits: number, // Number of credits the user has
         public VipCredits: number, // Number of VIP credits the user has
         public Wins: number, // Number of wins the user has
-        public paidProbability: string, // Probability of payment for the user
+        public paidProbability: [number, number], // Probability of payment for the user
         public id?: ObjectId // Optional MongoDB ObjectId
     ) {}
 }
