@@ -19,11 +19,11 @@ groupRouter.get("/", async (_req: Request, res: Response) => {
 });
 
 {/* Get group by TG ID */}
-groupRouter.get("/telegramId", async (req: Request, res: Response) => {
-    const userData = req.body as Group;
+groupRouter.get("/groupId/:id", async (req: Request, res: Response) => {
+    const id = req?.params?.id;
 
     try {
-        const query = { groupId: userData.groupId };
+        const query = { groupId: id };
         const group = (await collections.group?.findOne(query));
 
         if (group) {
