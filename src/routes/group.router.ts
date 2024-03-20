@@ -70,7 +70,7 @@ groupRouter.post("/", async (req: Request, res: Response) => {
 
 {/* Update a group */}
 
-groupRouter.patch("/:id", async (req: Request, res: Response) => {
+groupRouter.put("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
     const groupData = req.body as Partial<Group>;
 
