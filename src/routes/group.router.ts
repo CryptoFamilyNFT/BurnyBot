@@ -28,6 +28,8 @@ groupRouter.get("/groupId/:id", async (req: Request, res: Response) => {
 
         if (group) {
             res.status(200).send(group);
+        } else {
+            res.status(404).send(`User with ID ${id} not found.`);
         }
     } catch (error: any) {
         res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
