@@ -48,7 +48,7 @@ winRouter.post("/win", async (req: Request, res: Response) => {
 {/* Update a win */}
 winRouter.put("/win/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
-    const winData = req.body as Win;
+    const winData = req.body as Partial<Win>;
 
     try {
         const query = { _id: new ObjectId(id) };
@@ -61,7 +61,7 @@ winRouter.put("/win/:id", async (req: Request, res: Response) => {
 
 {/* Delete a win */}
 winRouter.delete("/win/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
+    const id = req?.params?.id; 
 
     try {
         const query = { _id: new ObjectId(id) };

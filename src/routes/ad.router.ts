@@ -51,7 +51,7 @@ adRouter.post("/", async (req: Request, res: Response) => {
 
 adRouter.put("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
-    const adData = req.body as Ad;
+    const adData = req.body as Partial<Ad>;
 
     try {
         const query = { _id: new ObjectId(id) };

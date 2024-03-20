@@ -52,7 +52,7 @@ relationalRouter.post("/", async (req: Request, res: Response) => {
 
 relationalRouter.put("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
-    const relationalData = req.body as Relational;
+    const relationalData = req.body as Partial<Relational>;
 
     try {
         const query = { _id: new ObjectId(id) };

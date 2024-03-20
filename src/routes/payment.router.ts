@@ -66,7 +66,7 @@ paymentRouter.post("/", async (req: Request, res: Response) => {
 {/* Update a payment */}
 paymentRouter.put("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
-    const paymentData = req.body as Payment;
+    const paymentData = req.body as Partial<Payment>;
 
     try {
         const query = { _id: new ObjectId(id) };

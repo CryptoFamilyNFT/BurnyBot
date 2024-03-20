@@ -51,7 +51,7 @@ attemptRouter.post("/attempt", async (req: Request, res: Response) => {
 
 attemptRouter.put("/attempt/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
-    const attemptData = req.body as Attempt;
+    const attemptData = req.body as Partial<Attempt>;
 
     try {
         const query = { _id: new ObjectId(id) };
