@@ -7,6 +7,7 @@ import Payment from "../models/payment";
 import Win from "../models/win";
 import Attempt from "../models/attempt";
 import Relational from "../models/relational";
+import FreeBurns from "../models/freeBurns";
 import { env } from "process";
 
 export const collections: {
@@ -17,6 +18,7 @@ export const collections: {
     relational?: mongoDB.Collection<Relational | Partial<Relational>>;
     users?: mongoDB.Collection<User | Partial<User>>
     win?: mongoDB.Collection<Win | Partial<Win>>;
+    freeBurn?: mongoDB.Collection<FreeBurns | Partial<FreeBurns>>;
 } = {}
 
 
@@ -35,6 +37,7 @@ export async function connectToDatabase() {
     const BurnyCollectionRelation = db.collection<Relational | Partial<Relational>>('relational');
     const BurnyCollectionAd = db.collection<Ad | Partial<Ad>>('ad');
     const BurnyCollectionAttempt = db.collection<Attempt | Partial<Attempt>>('attempt');
+    const BurnyCollectionFreeBurns = db.collection<Attempt | Partial<Attempt>>('freeBurns');
 
     collections.users = BurnyCollectionUsers;
     collections.group = BurnyCollectionGroup;
@@ -42,7 +45,7 @@ export async function connectToDatabase() {
     collections.relational = BurnyCollectionRelation;
     collections.ad = BurnyCollectionAd;
     collections.attempt = BurnyCollectionAttempt;
-
+    collections.freeBurn = BurnyCollectionFreeBurns;
 
     console.log(`Successfully connected to database: ${db.databaseName} and collections: 
     ${BurnyCollectionUsers.collectionName}
@@ -51,5 +54,6 @@ export async function connectToDatabase() {
     ${BurnyCollectionRelation.collectionName}
     ${BurnyCollectionAd.collectionName}
     ${BurnyCollectionAttempt.collectionName}
+    ${BurnyCollectionFreeBurns.collectionName}
     `);
 }
