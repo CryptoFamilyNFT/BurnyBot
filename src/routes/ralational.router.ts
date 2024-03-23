@@ -35,6 +35,25 @@ relationalRouter.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
+{/* Get relational by tokenAddress */}
+
+relationalRouter.get("/:id", async (req: Request, res: Response) => {
+    const id = req?.params?.id; // tokenAddress
+
+    try {
+        const query = { tokenAddress: id};
+        const relational = (await collections.relational?.findOne(query));
+
+        if (relational) {
+            res.status(200).send(relational);
+        } else {
+            res.status(400).send(`Maybe no here... ${req.params.id}`);
+        }
+    } catch (error: any) {
+        res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
+    }
+});
+
 {/* Create a new relational */}
 
 relationalRouter.post("/", async (req: Request, res: Response) => {
