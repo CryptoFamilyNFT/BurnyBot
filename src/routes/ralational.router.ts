@@ -37,7 +37,7 @@ relationalRouter.get("/:id", async (req: Request, res: Response) => {
 
 {/* Get relational by tokenAddress */}
 
-relationalRouter.get("/:id", async (req: Request, res: Response) => {
+relationalRouter.get("/0x/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id; // tokenAddress
 
     try {
