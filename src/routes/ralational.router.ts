@@ -84,7 +84,7 @@ relationalRouter.put("/:id", async (req: Request, res: Response) => {
 
 {/* Update a relational by 0x */}
 
-relationalRouter.put("/:id", async (req: Request, res: Response) => {
+relationalRouter.put("/0x/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
     const relationalData = req.body as Partial<Relational>;
 
