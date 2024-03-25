@@ -8,7 +8,7 @@ export const attemptRouter = express.Router();
 attemptRouter.use(express.json());
 
 {/* Get all attempts */}
-attemptRouter.get("/attempt", async (_req: Request, res: Response) => {
+attemptRouter.get("/", async (_req: Request, res: Response) => {
     try {
         const attempts = await collections.attempt?.find({}).toArray();
         res.status(200).send(attempts);
@@ -19,7 +19,7 @@ attemptRouter.get("/attempt", async (_req: Request, res: Response) => {
 
 {/* Get attempt by ID */}
 
-attemptRouter.get("/attempt/:id", async (req: Request, res: Response) => {
+attemptRouter.get("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {
@@ -36,7 +36,7 @@ attemptRouter.get("/attempt/:id", async (req: Request, res: Response) => {
 
 {/* Create a new attempt */}
 
-attemptRouter.post("/attempt", async (req: Request, res: Response) => {
+attemptRouter.post("/", async (req: Request, res: Response) => {
     const attemptData = req.body as Attempt;
 
     try {
@@ -49,7 +49,7 @@ attemptRouter.post("/attempt", async (req: Request, res: Response) => {
 
 {/* Update an attempt */}
 
-attemptRouter.put("/attempt/:id", async (req: Request, res: Response) => {
+attemptRouter.put("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
     const attemptData = req.body as Partial<Attempt>;
 
@@ -64,7 +64,7 @@ attemptRouter.put("/attempt/:id", async (req: Request, res: Response) => {
 
 {/* Delete an attempt */}
 
-attemptRouter.delete("/attempt/:id", async (req: Request, res: Response) => {
+attemptRouter.delete("/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {

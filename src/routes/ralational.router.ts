@@ -82,6 +82,21 @@ relationalRouter.put("/:id", async (req: Request, res: Response) => {
     }
 });
 
+{/* Update a relational by 0x */}
+
+relationalRouter.put("/:id", async (req: Request, res: Response) => {
+    const id = req?.params?.id;
+    const relationalData = req.body as Partial<Relational>;
+
+    try {
+        const query = { tokenAddress: id };
+        const result = await collections.relational?.replaceOne(query, relationalData);
+        res.status(200).send(result);
+    } catch (error: any) {
+        res.status(500).send(error.message);
+    }
+});
+
 {/* Delete a relational */}
 
 relationalRouter.delete("/:id", async (req: Request, res: Response) => {
