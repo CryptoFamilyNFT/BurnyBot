@@ -18,7 +18,7 @@ export const collections: {
     relational?: mongoDB.Collection<Relational | Partial<Relational>>;
     users?: mongoDB.Collection<User | Partial<User>>
     win?: mongoDB.Collection<Win | Partial<Win>>;
-    freeBurns?: mongoDB.Collection<FreeBurns | Partial<FreeBurns>>;
+    freeBurn?: mongoDB.Collection<FreeBurns | Partial<FreeBurns>>;
 } = {}
 
 
@@ -37,7 +37,7 @@ export async function connectToDatabase() {
     const BurnyCollectionRelation = db.collection<Relational | Partial<Relational>>('relational');
     const BurnyCollectionAd = db.collection<Ad | Partial<Ad>>('ad');
     const BurnyCollectionAttempt = db.collection<Attempt | Partial<Attempt>>('attempt');
-    const BurnyCollectionFreeBurns = db.collection<FreeBurns | Partial<FreeBurns>>('freeBurns');
+    const BurnyCollectionFreeBurns = db.collection<Attempt | Partial<Attempt>>('freeBurns');
 
     collections.users = BurnyCollectionUsers;
     collections.group = BurnyCollectionGroup;

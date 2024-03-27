@@ -37,7 +37,7 @@ export async function connectToDatabase() {
     const BurnyCollectionRelation = db.collection<Relational | Partial<Relational>>('relational');
     const BurnyCollectionAd = db.collection<Ad | Partial<Ad>>('ad');
     const BurnyCollectionAttempt = db.collection<Attempt | Partial<Attempt>>('attempt');
-    const BurnyCollectionFreeBurns = db.collection<FreeBurns | Partial<FreeBurns>>('freeBurns');
+    const BurnyCollectionFreeBurns = db.collection<Attempt | Partial<Attempt>>('freeBurns');
 
     collections.users = BurnyCollectionUsers;
     collections.group = BurnyCollectionGroup;

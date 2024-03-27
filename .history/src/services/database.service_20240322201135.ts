@@ -18,14 +18,14 @@ export const collections: {
     relational?: mongoDB.Collection<Relational | Partial<Relational>>;
     users?: mongoDB.Collection<User | Partial<User>>
     win?: mongoDB.Collection<Win | Partial<Win>>;
-    freeBurns?: mongoDB.Collection<FreeBurns | Partial<FreeBurns>>;
+    freeBurn?: mongoDB.Collection<FreeBurns | Partial<FreeBurns>>;
 } = {}
 
 
 export async function connectToDatabase() {
     dotenv.config();
 
-    const client: mongoDB.MongoClient = new mongoDB.MongoClient(env.DB_CONN_STRING || 'mongodb+srv://burnyerc20:E7G9PBm3KcETkMMP@burny.faallsm.mongodb.net/?retryWrites=true&w=majority&appName=Burny');
+    const client: mongoDB.MongoClient = new mongoDB.MongoClient(process.env.DB_CONN_STRING || 'mongodb://localhost:27017');
 
     await client.connect();
 
@@ -37,7 +37,7 @@ export async function connectToDatabase() {
     const BurnyCollectionRelation = db.collection<Relational | Partial<Relational>>('relational');
     const BurnyCollectionAd = db.collection<Ad | Partial<Ad>>('ad');
     const BurnyCollectionAttempt = db.collection<Attempt | Partial<Attempt>>('attempt');
-    const BurnyCollectionFreeBurns = db.collection<FreeBurns | Partial<FreeBurns>>('freeBurns');
+    const BurnyCollectionFreeBurns = db.collection<Attempt | Partial<Attempt>>('freeBurns');
 
     collections.users = BurnyCollectionUsers;
     collections.group = BurnyCollectionGroup;
@@ -45,7 +45,7 @@ export async function connectToDatabase() {
     collections.relational = BurnyCollectionRelation;
     collections.ad = BurnyCollectionAd;
     collections.attempt = BurnyCollectionAttempt;
-    collections.freeBurns = BurnyCollectionFreeBurns;
+    collections.freeBurn = BurnyCollectionFreeBurns;
 
     console.log(`Successfully connected to database: ${db.databaseName} and collections: 
     ${BurnyCollectionUsers.collectionName}

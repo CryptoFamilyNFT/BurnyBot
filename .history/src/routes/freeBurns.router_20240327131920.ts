@@ -11,8 +11,7 @@ freeBurnsRouter.use(express.json());
 
 freeBurnsRouter.get("/", async (_req: Request, res: Response) => {
     try {
-        const freeBurnss = await collections.freeBurns?.find({}).toArray() as freeBurns[];
-        console.log(freeBurnss);
+        const freeBurnss = await collections.freeBurns?.find({}).toArray();
         res.status(200).send(freeBurnss);
     } catch (error: any) {
         res.status(500).send(error.message);
@@ -25,7 +24,7 @@ freeBurnsRouter.get("/:id", async (req: Request, res: Response) => {
 
     try {
         const query = { _id: new ObjectId(id) };
-        const freeBurns = (await collections.freeBurns?.findOne(query));
+        const freeBurns = (await collections.freeBurn?.findOne(query));
 
         if (freeBurns) {
             res.status(200).send(freeBurns);
@@ -42,7 +41,7 @@ freeBurnsRouter.get("/groupId/:id", async (req: Request, res: Response) => {
 
     try {
         const query = { groupId: id  };
-        const freeBurns = (await collections.freeBurns?.findOne(query));
+        const freeBurns = (await collections.freeBurn?.findOne(query));
 
         if (freeBurns) {
             res.status(200).send(freeBurns);
@@ -57,7 +56,7 @@ freeBurnsRouter.post("/", async (req: Request, res: Response) => {
     const freeBurnsData = req.body as freeBurns;
 
     try {
-        const result = await collections.freeBurns?.insertOne(freeBurnsData);
+        const result = await collections.freeBurn?.insertOne(freeBurnsData);
         res.status(201).send(result);
     } catch (error: any) {
         res.status(500).send(error.message);
@@ -71,7 +70,7 @@ freeBurnsRouter.put("/:id", async (req: Request, res: Response) => {
 
     try {
         const query = { _id: new ObjectId(id) };
-        const result = await collections.freeBurns?.updateOne(query, { $set: freeBurnsData });
+        const result = await collections.freeBurn?.replaceOne(query, freeBurnsData);
         res.status(200).send(result);
     } catch (error: any) {
         res.status(500).send(error.message);
@@ -84,7 +83,7 @@ freeBurnsRouter.delete("/:id", async (req: Request, res: Response) => {
 
     try {
         const query = { _id: new ObjectId(id) };
-        const result = await collections.freeBurns?.deleteOne(query);
+        const result = await collections.freeBurn?.deleteOne(query);
         res.status(200).send(result);
     } catch (error: any) {
         res.status(500).send(error.message);
