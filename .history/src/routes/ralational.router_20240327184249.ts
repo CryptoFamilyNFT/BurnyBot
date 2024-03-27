@@ -75,7 +75,7 @@ relationalRouter.put("/:id", async (req: Request, res: Response) => {
 
     try {
         const query = { _id: new ObjectId(id) };
-        const result = await collections.relational?.updateOne({_id: query._id},{ $set: relationalData});
+        const result = await collections.relational?.updateOne(query, relationalData);
         res.status(200).send(result);
     } catch (error: any) {
         res.status(500).send(error.message);
@@ -90,7 +90,7 @@ relationalRouter.put("/0x/:id", async (req: Request, res: Response) => {
 
     try {
         const query = { tokenAddress: id };
-        const result = await collections.relational?.updateOne({tokenAddress: query.tokenAddress}, {$set: relationalData});
+        const result = await collections.relational?.updateOne(query, relationalData);
         res.status(200).send(result);
     } catch (error: any) {
         res.status(500).send(`${error.message} for address: ${id}`);
