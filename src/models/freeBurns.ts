@@ -8,7 +8,8 @@ export default class FreeBurns {
         public amount: number, // Amount of the free burn
         public inProgress: boolean, // Indicates if the free burn is in progress
         public processed: boolean, // Indicates if the free burn has been processed
-        public txHash: string // Transaction hash associated with the free burn
+        public txHash: string, // Transaction hash associated with the free burn
+        public Timestamp: Date // Timestamp of the free burn
     ) {}
 }
 

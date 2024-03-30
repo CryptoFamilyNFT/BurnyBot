@@ -10,8 +10,9 @@ export default class Group {
         public tokenAddress: string, // Token address associated with the group
         public poolType: string, // Type of pool associated with the group
         public tokenBoughtBurned: number, // Number of tokens bought and burned
-        public Wins: number, // Number of wins associated with the group
-        public Loss: number, // Number of losses associated with the group
+        public creditWins: number, // Number of wins associated with the group
+        public creditLoss: number, // Number of losses associated with the group
         public AllAttempts: number, // Total number of attempts made by the group
+        public redeemCredits: number, // Redeem credits associated with the group
     ) {}
 }
