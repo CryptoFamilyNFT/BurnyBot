@@ -11,6 +11,8 @@ import { winRouter } from "./routes/win.router";
 import { attemptRouter } from "./routes/attempt.router";
 import { magician } from "./routes/magician.router";
 import { freeBurnsRouter } from "./routes/freeBurns.router";
+import { creditWinsRouter } from "./routes/creditWins.router";
+import { creditActivationRouter } from "./routes/creditActivation.router";
 
 dotenv.config();
 
@@ -29,6 +31,8 @@ connectToDatabase()
     app.use("/freeBurns", freeBurnsRouter);
     app.use("/relational", relationalRouter);
     app.use("/magician", magician);
+    app.use("/creditWins", creditWinsRouter);
+    app.use("/creditActivation", creditActivationRouter);
 
     // Definisci le route dopo aver stabilito la connessione al database
     app.get("/", (req: Request, res: Response) => {

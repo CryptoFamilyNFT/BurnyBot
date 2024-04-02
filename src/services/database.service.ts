@@ -9,6 +9,8 @@ import Attempt from "../models/attempt";
 import Relational from "../models/relational";
 import FreeBurns from "../models/freeBurns";
 import { env } from "process";
+import CreditActivation from "../models/creditActivation";
+import CreditWins from "../models/creditWins";
 
 export const collections: {
     attempt?: mongoDB.Collection<Attempt | Partial<Attempt>>;
@@ -18,6 +20,8 @@ export const collections: {
     relational?: mongoDB.Collection<Relational | Partial<Relational>>;
     users?: mongoDB.Collection<User | Partial<User>>
     win?: mongoDB.Collection<Win | Partial<Win>>;
+    creditActivation?: mongoDB.Collection<CreditActivation | Partial<CreditActivation>>;
+    creditWins?: mongoDB.Collection<CreditWins | Partial<CreditWins>>;
     freeBurns?: mongoDB.Collection<FreeBurns | Partial<FreeBurns>>;
 } = {}
 
@@ -38,6 +42,8 @@ export async function connectToDatabase() {
     const BurnyCollectionAd = db.collection<Ad | Partial<Ad>>('ad');
     const BurnyCollectionAttempt = db.collection<Attempt | Partial<Attempt>>('attempt');
     const BurnyCollectionFreeBurns = db.collection<FreeBurns | Partial<FreeBurns>>('freeBurns');
+    const BurnyCollectionCreditActivation = db.collection<CreditActivation | Partial<CreditActivation>>('creditActivation');
+    const BurnyCollectionCreditWins = db.collection<CreditWins | Partial<CreditWins>>('creditWins');
 
     collections.users = BurnyCollectionUsers;
     collections.group = BurnyCollectionGroup;
@@ -46,6 +52,8 @@ export async function connectToDatabase() {
     collections.ad = BurnyCollectionAd;
     collections.attempt = BurnyCollectionAttempt;
     collections.freeBurns = BurnyCollectionFreeBurns;
+    collections.creditActivation = BurnyCollectionCreditActivation;
+    collections.creditWins = BurnyCollectionCreditWins;
 
     console.log(`Successfully connected to database: ${db.databaseName} and collections: 
     ${BurnyCollectionUsers.collectionName}
@@ -55,5 +63,7 @@ export async function connectToDatabase() {
     ${BurnyCollectionAd.collectionName}
     ${BurnyCollectionAttempt.collectionName}
     ${BurnyCollectionFreeBurns.collectionName}
+    ${BurnyCollectionCreditActivation.collectionName}
+    ${BurnyCollectionCreditWins.collectionName}
     `);
 }

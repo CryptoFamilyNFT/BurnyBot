@@ -14,5 +14,6 @@ export default class Group {
         public creditLoss: number, // Number of losses associated with the group
         public AllAttempts: number, // Total number of attempts made by the group
         public redeemCredits: number, // Redeem credits associated with the group
+        public redeemVipCredits: number, // Redeem Vip credits associated with the group
     ) {}
 }
