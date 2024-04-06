@@ -30,7 +30,7 @@ connectToDatabase()
     app.use("/attempt", attemptRouter);
     app.use("/freeBurns", freeBurnsRouter);
     app.use("/relational", relationalRouter);
-    app.use("/magician", magician);
+    //app.use("/magician", magician);
     app.use("/creditWins", creditWinsRouter);
     app.use("/creditActivation", creditActivationRouter);
 
