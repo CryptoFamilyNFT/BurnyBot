@@ -12,7 +12,9 @@ export default class Group {
         public tokenBoughtBurned: number, // Number of tokens bought and burned
         public creditWins: number, // Number of wins associated with the group
         public creditLoss: number, // Number of losses associated with the group
-        public AllAttempts: number, // Total number of attempts made by the group
+        public VipWins: number, // Number of VIP wins associated with the group
+        public VipLoss: number, // Number of VIP losses associated with the group
+        public AllAttempts: number, // Total number of attempts made by the group (free - vip - redeem)
         public redeemCredits: number, // Redeem credits associated with the group
         public redeemVipCredits: number, // Redeem Vip credits associated with the group
     ) {}
