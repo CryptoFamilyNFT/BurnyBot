@@ -172,7 +172,7 @@ export async function checkFreeBurns(): Promise<void> {
             }
 
 
-            await putClose.json();
+            //await putClose.json();
 
             // Invia un messaggio al gruppo tramite il bot
             ("✅Sending message to group...")
