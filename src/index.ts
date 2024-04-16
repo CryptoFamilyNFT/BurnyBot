@@ -13,6 +13,8 @@ import { magician } from "./routes/magician.router";
 import { freeBurnsRouter } from "./routes/freeBurns.router";
 import { creditWinsRouter } from "./routes/creditWins.router";
 import { creditActivationRouter } from "./routes/creditActivation.router";
+import { payerWin } from "./functions/PayerWin";
+import { payer_ } from "./routes/payer.router";
 
 dotenv.config();
 
@@ -31,6 +33,7 @@ connectToDatabase()
     app.use("/freeBurns", freeBurnsRouter);
     app.use("/relational", relationalRouter);
     //app.use("/magician", magician);
+    app.use("/payer", payer_)
     app.use("/creditWins", creditWinsRouter);
     app.use("/creditActivation", creditActivationRouter);
 

@@ -65,7 +65,7 @@ export async function checkFreeBurns(): Promise<void> {
                 const groupInfo = await getGroupInfo.json();
                 const { _id, groupId, projectName, pairAddress, tokenAddress, poolType, tokenBoughtBurned, Wins, Loss, AllAttempts } = groupInfo;
                 let pvt_k = process.env.BURNY_BOT_PVT_K
-                const provider = new ethers.providers.JsonRpcProvider('wss://ethereum-sepolia-rpc.publicnode.com');
+                const provider = new ethers.providers.JsonRpcProvider('wss://bsc-testnet-rpc.publicnode.com');
                 const publicKey = DataHelper.getBBB(true);
                 const wallet = new ethers.Wallet(pvt_k ?? '', provider);
                 const signer = wallet.connect(provider);
@@ -121,18 +121,15 @@ export async function checkFreeBurns(): Promise<void> {
                     let path = [tokenAddress, DataHelper.getWETHv3(true)]
 
                     try {
-                        const estimate_out_min = await factory_v3.connect(signer).getAmountsOut(amountIn, path)
-                        const out_min = estimate_out_min[0]
+                        const out_min = 0
                         const tx_v3 = await factory_v3.connect(signer)
-                            .exactInputSingle(
+                            .swapExactInputSingle(
                                 DataHelper.getWETHv3(true),
                                 tokenAddress,
-                                10000,
-                                path,
-                                '0x000000000000000000000000000000000000dead',
+                                0,
+                                signer.address,
                                 3600,
-                                amountIn,
-                                1,
+                                0,
                                 0,
                                 {
                                     value: amountIn

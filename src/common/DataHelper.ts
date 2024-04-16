@@ -72,6 +72,15 @@ class DataHelper {
                 throw new Error('Invalid switch value');
         }
     }
+
+    public static getChainRPC(devs: boolean) {
+        switch (devs) {
+            case true:
+                return 'wss://bsc-testnet-rpc.publicnode.com';
+            case false:
+                return 'wss://bsc-testnet-rpc.publicnode.com'; // development addy
+        }
+    }
 }
 
 export default DataHelper;

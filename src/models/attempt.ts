@@ -10,5 +10,6 @@ export default class Attempt {
         public AttemptType: string, // Type of attempt (Free, 1 Credit, 10 Credits)
         public isWin: boolean, // Indicates if the attempt resulted in a win
         public Timestamp: Date // Timestamp for when the attempt occurred
+        
     ) {}
 }
