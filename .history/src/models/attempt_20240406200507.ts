@@ -9,6 +9,7 @@ export default class Attempt {
         public TokenAddress: string, // Token address associated with the attempt
         public AttemptType: string, // Type of attempt (Free, 1 Credit, 10 Credits)
         public isWin: boolean, // Indicates if the attempt resulted in a win
-        public Timestamp: string // Timestamp for when the attempt occurred
+        public Timestamp: Date // Timestamp for when the attempt occurred
+        
     ) {}
 }

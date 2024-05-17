@@ -34,9 +34,9 @@ attemptRouter.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
-{/* Get attempt by Type */}
+{/* Get attempt by ID */}
 
-attemptRouter.get("/type/:id", async (req: Request, res: Response) => {
+attemptRouter.get("/type", async (req: Request, res: Response) => {
     const id = req?.params?.id;
 
     try {
@@ -51,7 +51,7 @@ attemptRouter.get("/type/:id", async (req: Request, res: Response) => {
     }
 });
 
-{/* Get attempt by timestamp */}
+{/* Get attempt by ID */}
 
 attemptRouter.get("/timestamp/:id", async (req: Request, res: Response) => {
     const id = req?.params?.id;

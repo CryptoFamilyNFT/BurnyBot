@@ -10,8 +10,6 @@ export default class Ad {
         public adInformations: string, // Additional information about the ad
         public paymentAmount: number, // Amount paid for the ad
         public paymentTimestamp: Date, // Timestamp for when the payment occurred
-        public promoExpiration: Date, // Timestamp for when the promo expires
-        public isActive: boolean, // Bool of active adv
-        public isNew: boolean, // Bool of new adv
+        public promoExpiration: Date // Timestamp for when the promo expires
     ) {}
 }

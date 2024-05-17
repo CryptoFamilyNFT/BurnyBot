@@ -34,38 +34,6 @@ adRouter.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
-{/* Get ad by active status */}
-
-adRouter.get("/active", async (req: Request, res: Response) => {
-
-    try {
-        const query = { isActive: true };
-        const ad = (await collections.ad?.findOne(query));
-
-        if (ad) {
-            res.status(200).send(ad);
-        }
-    } catch (error: any) {
-        res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
-    }
-});
-
-{/* Get ad by new status */}
-
-adRouter.get("/new", async (req: Request, res: Response) => {
-
-    try {
-        const query = { isNew: true };
-        const ad = (await collections.ad?.findOne(query));
-
-        if (ad) {
-            res.status(200).send(ad);
-        }
-    } catch (error: any) {
-        res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
-    }
-});
-
 {/* Create a new ad */}
 
 adRouter.post("/", async (req: Request, res: Response) => {

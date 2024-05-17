@@ -34,40 +34,6 @@ attemptRouter.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
-{/* Get attempt by Type */}
-
-attemptRouter.get("/type/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
-
-    try {
-        const query = { AttemptType: id };
-        const attempt = (await collections.attempt?.findOne(query));
-
-        if (attempt) {
-            res.status(200).send(attempt);
-        }
-    } catch (error: any) {
-        res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
-    }
-});
-
-{/* Get attempt by timestamp */}
-
-attemptRouter.get("/timestamp/:id", async (req: Request, res: Response) => {
-    const id = req?.params?.id;
-
-    try {
-        const query = { Timestamp: id };
-        const attempt = (await collections.attempt?.findOne(query));
-
-        if (attempt) {
-            res.status(200).send(attempt);
-        }
-    } catch (error: any) {
-        res.status(404).send(`Unable to find matching document with id: ${req.params.id}`);
-    }
-});
-
 {/* Create a new attempt */}
 
 attemptRouter.post("/", async (req: Request, res: Response) => {
