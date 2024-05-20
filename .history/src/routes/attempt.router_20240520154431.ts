@@ -72,7 +72,7 @@ attemptRouter.get("/timestamp/:id", async (req: Request, res: Response) => {
 });
 
 {/* Get attempts by type and timestamp */}
-attemptRouter.get("/type/:type/timestamp/:timestamp", async (req: Request, res: Response) => {
+attemptRouter.get("/ad/type/:type/timestamp/:timestamp", async (req: Request, res: Response) => {
     const { type, timestamp } = req.params;
 
     try {
